@@ -1,0 +1,622 @@
+<html>
+  <head>
+  <title>Libe Photographe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,200,800" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/>
+  <style>
+      body {
+        margin: 0px;
+        font-size: 1vw;
+        font-family: 'Work Sans', sans-serif;
+      }
+      
+      h1 {
+        font-size: 4em;
+        text-transform: uppercase;
+        letter-spacing: 0.4vw;
+        font-weight: 200;
+        line-height: 1.1em;
+      }
+      
+      h2 {
+        font-size: 1.5em;
+        font-weight: 400;
+        line-height: 1.4em;
+        letter-spacing: 2px;
+      }
+      
+      h3 {
+        font-size: 1.8em;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: rgba(255, 0, 0, 0.5);
+        margin: 0;
+      }
+      
+      h4 {
+        font-size: 2.0em;
+        font-weight: 200;
+        text-transform: capitalize;
+        margin: 0;
+      }
+      
+      em {
+        font-style: normal;
+        font-weight: 800;
+        border-bottom: 1px solid currentColor;
+        font-size: 1.2em;
+      }
+      
+      img {
+        max-width: 100%;
+      }
+      
+      input, textarea {
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+        border: 1px solid rgba(255, 0, 0, 0.5);
+        padding: 1vw;
+        font-size: 1.2em;
+        font-family: Arial;
+      }
+      
+      input {
+        height: 50px;
+      }
+      textarea{
+        resize: none;
+      }
+      
+      a {
+        color: rgba(255, 0, 0, 0.5);
+      }
+      
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      
+      .navbar {
+        width: 100%;
+        position: fixed;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        z-index: 10;
+        padding-top: 20px;
+      }
+      
+      .navbar-left {
+        margin-left: 4vw;
+        visibility: hidden;
+      }
+      
+      .navbar .navbar-right {
+        text-align: right;
+        margin-right: 4vw;
+      }
+      
+      .navbar a{
+        color: white;
+      }
+      
+      .navbar h3{
+        color: black;
+      }
+      
+      .menu-icon {
+        width: 3vw;
+      }
+      
+      #menu-icon-black{
+        display: none;
+      }
+      
+      #dropdown-menu {
+        position: fixed;
+        right: 0;
+        z-index: 20;
+        width: 30vw;
+        height: 100vh;
+        display: none;
+        background-color: rgb(255, 230, 230);
+        padding-left: 4vw;
+        padding-top: 2vh;
+      }
+      
+      #dropdown-menu h3{
+        margin-bottom: 3em;
+        color: white;
+      }
+      
+      #dropdown-menu li{
+        margin-bottom: 20px;
+      }
+      
+      #dropdown-menu a{
+        font-size: 1.4em;
+        text-transform: uppercase;
+        color: white;
+        font-weight: 400;
+        text-decoration: none;
+      }
+      
+      #dropdown-menu #menu-close {
+        text-align: right;
+        margin-right: 2vw;
+        border-bottom: 1px solid white;
+        margin-bottom: 3em;
+      }
+      
+      #menu-close em{
+        font-weight: 400;
+        font-size: 1.8em;
+        margin-left: 0.2em;
+        border-bottom: 0;
+      }
+      
+      .header {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr 1.1fr;
+        grid-template-rows: 32% auto;
+        margin-left: 4vw;
+      }
+      
+      .header-title {
+        grid-row-start: 1;
+        grid-column-start: 1;
+        grid-column-end: span 2;
+        z-index: 1;
+      }
+      
+      .header-description{
+        margin-right: 2vw;
+        text-align: justify;
+      }
+      
+      .header-image {
+        grid-row-start: 1;
+        grid-row-end: 3;
+        grid-column-end: span 2;
+        grid-column-start: 2;
+      }
+      
+      .header-form-button{
+        text-align: center;
+        margin-top: 4vh;
+      }
+      
+      .header-form-button h3 {
+        display: inline-block;
+        border-bottom: 1px solid currentColor;    
+        margin-bottom: 0px;    
+      }
+      
+      .header-description em {
+        color: rgba(255, 0, 0, 0.5);
+      }
+      
+      .contact-icon {
+        display: block;
+        width: 80px;
+        opacity: 0.5;
+        margin: auto;
+      }
+      
+      #contact-form {
+        max-width: 800px;
+        padding-left: 4vw;
+        padding-right: 4vw;
+        padding-bottom: 30px;
+        padding-top: 30px; 
+      }
+      
+      #contact-form form{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto 1fr 1fr 2.3fr 1.5fr;
+        grid-column-gap: 4vw;
+      }
+      
+      .contact-info {
+        grid-column-start: 2;
+      }
+      
+      #name {
+        grid-row-start: 2;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+      
+      #subject{
+        grid-column-end: span 2; 
+      }
+      
+      #description{
+        grid-column-end: span 2;
+        height: 100%;
+      }
+      #submit{
+        grid-column-end: span 2;  
+        width: 200px;
+        height: auto;
+        margin: auto;
+        margin-bottom: 0px;
+        border: 2px solid rgba(255, 0, 0, 0.5);
+        color: rgba(255, 0, 0, 0.5);
+        font-weight: 800;
+        font-size: 2em;
+        background-color: white;
+      }
+      
+      #contact-title {
+        margin:0;
+      }
+      
+      .contact-info h3{
+        font-weight: 200;
+      }
+      
+      .contact-info p{
+        font-size: 1.4em;
+        margin: 0;
+        margin-bottom: 20px;
+        margin-top: 20px;
+      }
+      
+      .header-scroll {
+        text-align: center;
+        margin-top: 60px
+      }
+      
+      .icon-scroll {
+        width: 20px;
+        margin-top: 10px;
+      }
+      
+      .content {
+        margin-top: 18vh;
+        margin-bottom: 20vh;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        grid-template-columns: 5fr 1fr 5fr;
+      }
+      
+      .content-img {
+        grid-row-end: span 2;
+      }
+      
+      .content-left {
+        grid-row-start: 1;
+        grid-column-start: 1;
+        grid-column-end: span 2;
+        text-align: right;
+      }
+      
+      .content-right {
+        grid-row-start: 1;
+        grid-column-start: 2;
+        grid-column-end: span 2;
+        text-align: left;
+      }
+      
+      .content-description {
+        margin-left: 4vw;
+        margin-right: 4vw;
+        font-size: 1.3em;
+        text-align: justify;
+      }
+      
+      .content h2 {
+        font-size: 6em;
+        font-weight: 800;
+        line-height: 1em;
+        letter-spacing: 4px;
+        z-index: 30;
+      }
+      
+      .blocker {
+        z-index: 30;
+      }
+      
+      @media screen and (max-width: 425px) {
+        body {
+          font-size: 3vw;
+        }
+        h1 {
+          font-size: 2.24em;
+        }
+        input, textarea {
+          margin-top: 3vw;
+          margin-bottom: 3vw;
+          padding: 4vw;
+        }
+        
+        #dropdown-menu{
+          width: 100%;
+        }
+        
+        #dropdown-menu-content{
+          padding-left: 30px;
+        }
+        
+        .header-description{
+          grid-row-start: 4;
+          grid-column-end: span 3;
+          margin-top: 7%;
+        }
+        
+        #contact-title {
+          margin-bottom: 20px;
+        }
+        
+        .contact-info {
+          display: none;
+        }
+        
+        #contact-form form {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto 1fr 1fr 1fr 1fr 2.3fr 1.5fr;
+        }
+        
+        #email {
+          grid-row-start: 3;
+        }
+        
+        #phone {
+          grid-row-start: 4;
+        }
+        
+        #subject, #description, #submit{
+          grid-column-end: span 1; 
+        }
+        
+        .header-scroll {
+          margin-top: 30px;
+        }
+        
+        .content {
+          grid-template-rows: 1fr auto auto;
+          grid-template-columns: 1fr;
+        }
+        
+        .content h2 {
+          font-size: 4em;
+          margin-top: 4vh;
+        }
+        
+        .content-right {
+          grid-column-end: 1;
+        }
+        .content-left {
+          grid-column-end: 1;
+        }
+        .content-description {
+          grid-column-start: 1;
+          padding-left: 0vw;
+        }
+        .content-title {
+          grid-row-start: 2;
+          padding-left: 2vw;
+          text-align: left;
+        }
+        .content-img {
+          grid-row-end: 1;
+        }
+        
+      }
+    
+  </style>
+  </head>
+  <body>
+
+  <nav>
+    <div class="navbar">
+      <div class="navbar-left">
+        <a href=""><h3>㊍Libe <br><em>Photographe</em></h3></a>
+      </div>
+      <div class="navbar-right">
+        <a id='menu-icon-white' href="#dropdown-menu" rel="menu:open"><img class="menu-icon" alt="" src="data:image/svg+xml;base64,
+  PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNTAgNTAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUwIDUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGNsYXNzPSIiPjxnPjxnPgoJPHJlY3QgeT0iMyIgd2lkdGg9IjUwIiBoZWlnaHQ9IjIiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgc3R5bGU9ImZpbGw6I0ZGRkZGRiIgZGF0YS1vbGRfY29sb3I9
+  IiNmZmZmZmYiPjwvcmVjdD4KCTxyZWN0IHk9IjE3IiB3aWR0aD0iNTAiIGhlaWdodD0iMiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9ImFjdGl2ZS1wYXRoIiBzdHlsZT0iZmlsbDojRkZGRkZGIiBkYXRhLW9sZF9jb2xvcj0iI2ZmZmZmZiI+PC9yZWN0PgoJPHJlY3QgeT0iMzEiIHdpZHRoPSI1MCIgaGVpZ2h0PSIyIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iYWN0aXZlLXBhdGgiIHN0eWxlPSJmaWxsOiNGRkZGRkYiIGRhdGEtb2xkX2NvbG9yPSIjZmZmZmZmIj48L3JlY3Q+Cgk8cmVjdCB5PSI0NSIgd2lkdGg9IjUwIiBoZWlnaHQ9IjIiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgc3R5bGU9ImZpbGw6I0ZGRkZGRiIgZGF0YS1vbGRfY29sb3I9IiNmZmZmZmYiPjwvcmVjdD4KPC9nPjwvZz4gPC9zdmc+" /></a>
+        <a id='menu-icon-black' href="#dropdown-menu" rel="menu:open"><img class="menu-icon" alt="" src="data:image/svg+xml;base64,
+  PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNTAgNTAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUwIDUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGNsYXNzPSIiPjxnPjxnPgoJPHJlY3QgeT0iMyIgd2lkdGg9IjUwIiBoZWlnaHQ9IjIiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgc3R5bGU9ImZpbGw6IzAwMDAwMCIgZGF0YS1vbGRfY29sb3I9
+  IiNGRkZGRkYiPjwvcmVjdD4KCTxyZWN0IHk9IjE3IiB3aWR0aD0iNTAiIGhlaWdodD0iMiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9ImFjdGl2ZS1wYXRoIiBzdHlsZT0iZmlsbDojMDAwMDAwIiBkYXRhLW9sZF9jb2xvcj0iI0ZGRkZGRiI+PC9yZWN0PgoJPHJlY3QgeT0iMzEiIHdpZHRoPSI1MCIgaGVpZ2h0PSIyIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iYWN0aXZlLXBhdGgiIHN0eWxlPSJmaWxsOiMwMDAwMDAiIGRhdGEtb2xkX2NvbG9yPSIjRkZGRkZGIj48L3JlY3Q+Cgk8cmVjdCB5PSI0NSIgd2lkdGg9IjUwIiBoZWlnaHQ9IjIiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgc3R5bGU9ImZpbGw6IzAwMDAwMCIgZGF0YS1vbGRfY29sb3I9IiNGRkZGRkYiPjwvcmVjdD4KPC9nPjwvZz4gPC9zdmc+" /></a>
+      </div>
+    </div>
+    <div id='dropdown-menu'>
+      <div id='dropdown-menu-content'>
+      <div id="menu-close"><a href='#'>close <em>X</em></a></div>
+      <ul>
+      <li><h3>㊍Libe <br><em>Photographe</em></h3></li>
+      <li><a href='#'>Acceuil</a></li>
+      <li><a href='#'>Portfolio</a></li>
+      <li><a href='#'>Blog</a></li>
+      <li><a href="#contact-form" rel="modal:open">Contact</a></li>  
+    </ul>  
+  </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class='header'>
+      <div class='header-title'>
+        <h1>㊍Libe <br> <em>Photographe</em></h1>
+      </div>
+      <div class='header-description'>
+        <h2>Hi, I'm <em>Elody</em> a young French photographer. I live in Aix en Provence, where I studied fine arts at Beaux Arts d'Aix and majored in photography.</h2>
+        <div class='header-form-button'>
+          <a href="#contact-form" rel="modal:open">
+          <h3>Contact me</h3>
+          <img class='contact-icon' alt="" src="data:image/svg+xml;base64,
+  PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNTEyIiB2aWV3Qm94PSItMTcgLTEwMSA1NjAgNTYwIiB3aWR0aD0iNTEyIiBjbGFzcz0iIj48Zz48cGF0aCBkPSJtNDYyLjUtNS41ODIwMzFoLTQwMGMtMzQuNTExNzE5LjAxMTcxOS02Mi40ODQzNzUgMjcuOTg4MjgxLTYyLjUgNjIuNXYyMzMuMzcxMDkzYy4wMTU2MjUgMzQuNTExNzE5IDI3Ljk4ODI4MSA2Mi40OTIxODggNjIuNSA2Mi41aDQwMGMzNC41MTE3MTktLjAwNzgxMiA2Mi40ODQzNzUtMjcuOTg4MjgxIDYyLjUtNjIuNXYtMjMzLjM3MTA5M2MtLjAxNTYyNS0zNC41MTE3MTktMjcuOTg4MjgxLTYyLjQ4ODI4MS02Mi41LTYyLjV6bS00MDAgMjVoNDAwYzE4LjAwMzkwNi4wNDY4NzUgMzMuNDUzMTI1IDEyLjgyNDIxOSAzNi44NzUgMzAuNDk2MDkzbC0yMz
+  YuODc1IDEzMi4wMDM5MDctMjM2Ljg3NS0xMzIuMDAzOTA3YzMuNDIxODc1LTE3LjY3MTg3NCAxOC44NzEwOTQtMzAuNDQ5MjE4IDM2Ljg3NS0zMC40OTYwOTN6bTQwMCAzMDguMjVoLTQwMGMtMjAuNjgzNTk0LS4wNjI1LTM3LjQ0MTQwNi0xNi44MTY0MDctMzcuNS0zNy41di0yMTJsMjMxLjM3NSAxMjguOTk2MDkzYzEuODc1IDEuMDMxMjUgMy45ODA0NjkgMS41OTM3NSA2LjEyNSAxLjYyODkwNyAyLjE1MjM0NC4wMjM0MzcgNC4yNjU2MjUtLjUzOTA2MyA2LjEyNS0xLjYyODkwN2wyMzEuMzc1LTEyOC45OTYwOTN2MjEyYy0uMDE1NjI1IDIwLjcwMzEyNS0xNi43OTY4NzUgMzcuNDgwNDY5LTM3LjUgMzcuNXptMCAwIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iYWN0aXZlLXBhdGgiIHN0eWxlPSJmaWxsOiNGRjAwMDAiIGRhdGEtb2xkX2NvbG9yPSIjZmYwMDAwIj48L3BhdGg+PC9nPiA8L3N2Zz4=" />
+        </a>
+      </div>
+      <div id="contact-form" class="modal">
+        <form action="https://formspree.io/berard.hugo@gmail.com" method="POST">
+          <div id="contact-title">
+            <h3>Contact me</h3>
+          </div>
+          <div class='contact-info'>
+            <h3>㊍Libe <br><em>Photographe</em></h3>
+          </div>
+          <div class='contact-info'>
+            <p>5215 avenue de Lorimier <br>
+                H2H2C1, Montreal, QC <br>
+                Canada <br>
+                <a href = "mailto: elody.s@gmx.com">elody.s@gmx.com</a> <br>
+                <a href="tel:+1-303-499-7111">+1 (303) 499-7111</a></p>
+          </div>
+          <input type="text" id='name' name='Name' placeholder="Name" required></input>
+          <input type="email" id='email' name='_replyto' placeholder="Email Adress" required></input>
+          <input type="tel" id='phone' name='Phone' placeholder="Phone (Optional)"></input>
+          <input type="text" id='subject' name='_subject' placeholder="Subject" required></input>
+          <textarea id='description' name='Description' placeholder="Description..." required></textarea>    
+          <input type="submit" id='submit'></input>
+        </form>
+      </div>
+      </div>
+      <div class='header-image'>
+        <div class="carousel">
+          <img class="carousel-item" alt="Photo of the hands of the newly wed with rings joined together over a flower." src='https://static.tumblr.com/1e850fc6c5379aa3d76f0ced851e58bc/og25nhm/7kCpii1al/tumblr_static_awcil0nniuww04o8gs088ggco.jpg'></img>
+          <img class="carousel-item" alt="Photo of the newly wed in front of the hotel declaring their vows." src='https://static.tumblr.com/59e8c18cf1fb4cd4c2704f0059559bb0/og25nhm/Fy4pii86d/tumblr_static_432re46805444s44k4oso0g0o.jpg'></img>      
+          <img class="carousel-item" alt="Photo of a bouquet of flower on a chair at a wedding" src='https://static.tumblr.com/d2f125d525a894227e1aa5f5752f6bc8/og25nhm/qJJpii7yz/tumblr_static_87610qmz8skkcoc4ccks8008k.jpg'></img>
+        </div>
+      </div>
+    </div>
+    <div class='header-scroll'>
+      <h4>Discover my work</h4>
+      <img class='icon-scroll' alt="" src="data:image/svg+xml;base64,
+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMjkgMTI5IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxMjkgMTI5IiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+PGc+PGc+CiAgICA8cGF0aCBkPSJtMTIxLjMsMzQuNmMtMS42LTEuNi00LjItMS42LTUuOCwwbC01MSw1MS4xLTUxLjEtNTEuMWMtMS42LTEuNi00LjItMS42LTUuOCwwLTEuNiwxLjYtMS42LDQuMiAwLDUuOGw1My45LDUzLjljMC44LDAuOCAxLjgsMS4yIDIuOSwxLjIgMSwwIDIuMS0wLjQgMi45LTEuMmw1My45LTUzLjljMS43LTEuNiAxLjctNC4yIDAuMS01Ljh6IiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iYWN0aXZlLXBhdGgiIHN0eWxlPSJmaWxsOiMwMDAwMDAiPjwvcGF0aD4KICA8L2c+PC9nPiA8L3N2Zz4=" />
+    </div>
+  </header>
+  
+  <div>
+  <div class="content">
+    <div class='content-left content-img'>
+      <img src="https://66.media.tumblr.com/58d5675ff2a6efc8943d390daace35a8/tumblr_oxdgbetyW81wdxkaho1_1280.jpg"></img>
+    </div>
+    <div class='content-right content-title'>
+      <h2>Marriages</h2>
+    </div>
+    <div class='content-description'>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <a href="#">Learn more ...</a>
+  </div>
+</div>
+  <div class="content">
+    <div class='content-right content-img'>
+      <img src="https://66.media.tumblr.com/4499a34ab130bbef5b9962fbfadd630a/tumblr_pip71nV4Fh1wdxkaho1_1280.jpg"></img>
+    </div>
+    <div class='content-left content-title'>
+      <h2>Portraits</h2>
+    </div>
+    <div class='content-description'>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <a href="#">Learn more ...</a>
+  </div>
+</div>
+<div class="content">
+  <div class='content-left content-img'>
+    <img src="https://66.media.tumblr.com/b35731f42eec9df0596a93307343762a/tumblr_oxdfsgC9cF1wdxkaho1_1280.jpg"></img>
+  </div>
+  <div class='content-right content-title'>
+    <h2>Birthdays</h2>
+  </div>
+  <div class='content-description'>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <a href="#">Learn more ...</a>
+</div>
+</div>
+<div class="content">
+  <div class='content-right content-img'>
+    <img src="https://66.media.tumblr.com/1de067c6457d91269039aa3070c30d5b/tumblr_pii71l5VPb1wdxkaho4_1280.jpg"></img>
+  </div>
+  <div class='content-left content-title'>
+    <h2>Evenements</h2>
+  </div>
+  <div class='content-description'>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <a href="#">Learn more ...</a>
+</div>
+</div>
+<div class="content">
+  <div class='content-left content-img'>
+    <img src="https://66.media.tumblr.com/e77c6f3aff5d1fe6fba2fe3d4b345b28/tumblr_pbtk56xMvx1wdxkaho1_1280.jpg"></img>
+  </div>
+  <div class='content-right content-title'>
+    <h2>Publicite</h2>
+  </div>
+  <div class='content-description'>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <a href="#">Learn more ...</a>
+</div>
+</div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.carousel').slick({
+        autoplay: true,
+        autoplaySpeed: 3000,
+        speed: 5000,
+        prevArrow: false,
+        nextArrow: false,
+      });
+    });
+  
+    $(window).scroll(function(){
+      if ($(window).scrollTop()*100.0/$(window).height() > 10){
+       $(".navbar-left").css("visibility", "visible");
+       $(".navbar").css("background-color", "white");
+       $("#menu-icon-black").show();
+       $("#menu-icon-white").hide();
+      } else {
+        $(".navbar-left").css("visibility", "hidden");
+        $(".navbar").css("background-color", "transparent");
+        $("#menu-icon-white").show();
+        $("#menu-icon-black").hide();
+      }
+     });
+     
+     $(window).click(function(e){
+       var target = $(e.target), article;
+       if(target.is('#dropdown-menu')){
+       }else{
+        $("#dropdown-menu").hide(); 
+       }
+       
+     });
+     
+     $("#menu-close").click(function(e){
+       e.preventDefault();
+       e.stopPropagation();
+       $("#dropdown-menu").hide();
+     });
+     
+     $("#menu-icon-white").click(function(e){
+       e.preventDefault();
+       e.stopPropagation();
+       $("#dropdown-menu").show();
+     });
+     $("#menu-icon-black").click(function(e){
+       e.preventDefault();
+       e.stopPropagation();
+       $("#dropdown-menu").show();
+     });
+  </script>
+  </body>
+</html>
