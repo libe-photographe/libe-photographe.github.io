@@ -1,0 +1,212 @@
+<html>
+  <head>
+  <title>Libe Photographe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="google-site-verification" content="pYGN0U7IJ-6rU8rwUpjB6SJt25cLGpZ_c7Eywa7n3AE" />
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,200,800" rel="stylesheet">
+  <link rel="stylesheet" href="./css/jquery.modal.min.css" />
+  <link rel="stylesheet" href="./css/navbar.css" />
+  <link rel="stylesheet" href="./css/form.css" />
+  
+  <style>
+    @font-face {
+      font-family: 'Work Sans';
+      src: url('webfont.ttf')  format('truetype');
+    }
+    
+    body {
+      margin: 0px;
+      font-size: 1vw;
+      font-family: 'Work Sans', sans-serif;
+    }
+    
+    h1 {
+      font-size: 4em;
+      text-transform: uppercase;
+      letter-spacing: 0.4vw;
+      font-weight: 200;
+      line-height: 1.1em;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      font-weight: 400;
+      line-height: 1.4em;
+      letter-spacing: 2px;
+    }
+    
+    h3 {
+      font-size: 1.8em;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255, 0, 0, 0.5);
+      margin: 0;
+    }
+    
+    a {
+      color: rgba(255, 0, 0, 0.5);
+      text-decoration: none;
+    }
+    
+    em {
+      font-style: normal;
+      font-weight: 800;
+      border-bottom: 1px solid currentColor;
+      font-size: 1.2em;
+    }
+    
+    .test {
+      height: 100vh;
+      opacity: 0.4;
+      background: url(./assets/tumblr_oxdgbetyW81wdxkaho1_1280.jpg) no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+    
+    .text {
+      top: 25vh;
+      position: fixed;
+      text-align: center;
+      width:100%;
+    }
+    
+    .text h1 {
+      color: black;
+      font-weight: 200;
+      font-size: 6em;
+      text-transform: uppercase;
+      margin: 0;
+      letter-spacing: 0;
+    }
+    
+    .separator {
+      display: inline-block;
+      width: 50vw;
+      height: 0.2vh;
+      background-color: black;
+      margin-bottom: 4vh;
+      margin-top: 2vh;
+    }
+    
+    .text h2 {
+      color: black;
+      font-weight: 800;
+      font-size: 3em;
+      text-transform: uppercase;
+      margin: 0;
+      margin-bottom: 10vh;
+      letter-spacing: 0;
+    }
+    
+    .text a {
+      color: white;
+      margin-top: 10vh;
+      font-size: 1.5em;
+      text-decoration: none;
+      padding: 20px;
+      font-weight: 800;
+      background-color: rgb(255, 200, 200);
+    }
+  
+  .navbar-left {
+    visibility: visible;
+  }
+  
+  #menu-icon-black {
+    display: inline;
+  }
+  
+  </style>
+  </head>
+  
+  <body>
+    
+    <div class="navbar">
+      <div class="navbar-left">
+        <a href=""><h3>㊍Libe <br><em>Photographe</em></h3></a>
+      </div>
+      <div class="navbar-right">
+        <a id='menu-icon-black' href="#dropdown-menu" rel="menu:open"><img class="menu-icon" alt="" src="data:image/svg+xml;base64,
+  PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNTAgNTAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUwIDUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGNsYXNzPSIiPjxnPjxnPgoJPHJlY3QgeT0iMyIgd2lkdGg9IjUwIiBoZWlnaHQ9IjIiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgc3R5bGU9ImZpbGw6IzAwMDAwMCIgZGF0YS1vbGRfY29sb3I9
+  IiNGRkZGRkYiPjwvcmVjdD4KCTxyZWN0IHk9IjE3IiB3aWR0aD0iNTAiIGhlaWdodD0iMiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9ImFjdGl2ZS1wYXRoIiBzdHlsZT0iZmlsbDojMDAwMDAwIiBkYXRhLW9sZF9jb2xvcj0iI0ZGRkZGRiI+PC9yZWN0PgoJPHJlY3QgeT0iMzEiIHdpZHRoPSI1MCIgaGVpZ2h0PSIyIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iYWN0aXZlLXBhdGgiIHN0eWxlPSJmaWxsOiMwMDAwMDAiIGRhdGEtb2xkX2NvbG9yPSIjRkZGRkZGIj48L3JlY3Q+Cgk8cmVjdCB5PSI0NSIgd2lkdGg9IjUwIiBoZWlnaHQ9IjIiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgc3R5bGU9ImZpbGw6IzAwMDAwMCIgZGF0YS1vbGRfY29sb3I9IiNGRkZGRkYiPjwvcmVjdD4KPC9nPjwvZz4gPC9zdmc+" /></a>
+      </div>
+    </div>
+    <div id='dropdown-menu'>
+      <div id='dropdown-menu-content'>
+      <div id="menu-close"><a href='#'>close <em>X</em></a></div>
+      <ul>
+      <li><h3>㊍Libe <br><em>Photographe</em></h3></li>
+      <li><a href='./index.html'>Acceuil</a></li>
+      <li><a href='#'>Portfolio</a></li>
+      <li><a href='#'>Blog</a></li>
+      <li><a href="#contact-form" rel="modal:open">Contact</a></li>  
+    </ul>  
+  </div>
+    </div>
+  </nav>
+    
+    <div>
+      <div class='test'>
+      </div>
+      <div class='text'>
+          <h1>Gallerie Photos</h1>
+          <div class='separator'></div>
+          <h2>Page en Construction</h2>
+          <a href="./index.html">Retour a l'acceuil</a>
+      </div>
+    </div>
+    
+    <div id="contact-form" class="modal">
+      <form action="https://formspree.io/berard.hugo@gmail.com" method="POST">
+        <div id="contact-title">
+          <h3>Contact me</h3>
+        </div>
+        <div class='contact-info'>
+          <h3>㊍Libe <br><em>Photographe</em></h3>
+        </div>
+        <div class='contact-info'>
+          <p>5215 avenue de Lorimier <br>
+              H2H2C1, Montreal, QC <br>
+              Canada <br>
+              <a href = "mailto: elody.s@gmx.com">elody.s@gmx.com</a> <br>
+              <a href="tel:+1-303-499-7111">+1 (303) 499-7111</a></p>
+        </div>
+        <input type="text" id='name' name='Name' placeholder="Name" required></input>
+        <input type="email" id='email' name='_replyto' placeholder="Email Adress" required></input>
+        <input type="tel" id='phone' name='Phone' placeholder="Phone (Optional)"></input>
+        <input type="text" id='subject' name='_subject' placeholder="Subject" required></input>
+        <textarea id='description' name='Description' placeholder="Description..." required></textarea>    
+        <input type="submit" id='submit'></input>
+      </form>
+    </div>
+    </div>
+    
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/jquery.modal.min.js"></script>
+  </body>
+  
+  <script type="text/javascript">
+  $(window).click(function(e){
+    var target = $(e.target), article;
+    if(target.is('#dropdown-menu')){
+    }else{
+     $("#dropdown-menu").hide(); 
+    }    
+  });
+  
+  $("#menu-close").click(function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    $("#dropdown-menu").hide();
+  });
+  
+  $("#menu-icon-black").click(function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    $("#dropdown-menu").show();
+  });
+  </script>
+</html>

@@ -1,0 +1,95 @@
+input, textarea {
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  border: 1px solid rgba(255, 0, 0, 0.5);
+  padding: 1vw;
+  font-size: 1.2em;
+  font-family: Arial;
+}
+
+input {
+  height: 50px;
+}
+textarea{
+  resize: none;
+}
+
+#contact-form {
+  max-width: 800px;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  padding-bottom: 30px;
+  padding-top: 30px; 
+}
+
+#contact-form form{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto 1fr 1fr 2.3fr 1.5fr;
+  grid-column-gap: 4vw;
+}
+
+.contact-info {
+  grid-column-start: 2;
+}
+
+#name {
+  grid-row-start: 2;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#subject{
+  grid-column-end: span 2; 
+}
+
+#description{
+  grid-column-end: span 2;
+  height: 100%;
+}
+#submit{
+  grid-column-end: span 2;  
+  width: 200px;
+  height: auto;
+  margin: auto;
+  margin-bottom: 0px;
+  border: 2px solid rgba(255, 0, 0, 0.5);
+  color: rgba(255, 0, 0, 0.5);
+  font-weight: 800;
+  font-size: 2em;
+  background-color: white;
+}
+
+#contact-title {
+  margin:0;
+}
+
+.contact-info h3{
+  font-weight: 200;
+}
+
+.contact-info p{
+  font-size: 1.4em;
+  margin: 0;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 425px) {
+  #contact-form form {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 1fr 1fr 1fr 2.3fr 1.5fr;
+  }
+  
+  #email {
+    grid-row-start: 3;
+  }
+  
+  #phone {
+    grid-row-start: 4;
+  }
+  
+  #subject, #description, #submit{
+    grid-column-end: span 1; 
+  }
+}
