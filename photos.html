@@ -8,6 +8,16 @@
   <link rel="stylesheet" href="./css/navbar.css" />
   <link rel="stylesheet" href="./css/form.css" />
   
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131031230-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-131031230-1');
+  </script>
+
   <style>
     @font-face {
       font-family: 'Work Sans';
@@ -109,6 +119,10 @@
       padding: 20px;
       font-weight: 800;
       background-color: rgb(255, 200, 200);
+    }
+    
+    .text a:hover {
+      border: 1px solid black;
     }
   
   .navbar-left {
