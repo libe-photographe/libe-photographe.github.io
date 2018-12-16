@@ -45,7 +45,7 @@ ul {
   width: 30vw;
   height: 100vh;
   display: none;
-  background-color: rgb(255, 230, 230);
+  background-color: rgb(255, 175, 175);
   padding-left: 4vw;
   padding-top: 2vh;
 }
@@ -65,6 +65,10 @@ ul {
   color: white;
   font-weight: 400;
   text-decoration: none;
+}
+
+#dropdown-menu a:hover{
+  text-decoration:underline;
 }
 
 #dropdown-menu #menu-close {
