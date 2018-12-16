@@ -1,0 +1,266 @@
+<html>
+  <head>
+  <title>Libe Photographe - Elody Libe, portrait d'une jeune photographe</title>
+  <meta name="description" content="Je suis Elody Libe, une jeune photographe d'Aix en Provence. J'ai étudié aux Beaux Arts d'Aix ce qui m'a permis ... J'adore voyager et rencontrer de nouvelles personnes, chaques voyages ou rencontres est pour moi une aventure et une histoire à raconter. Mon moyen d'expression préféré est la photographie qui est donc au coeur de ma pratique artistique.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="google-site-verification" content="pYGN0U7IJ-6rU8rwUpjB6SJt25cLGpZ_c7Eywa7n3AE" />
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,200,800" rel="stylesheet">
+  <link rel="stylesheet" href="./css/jquery.modal.min.css" />
+  <link rel="stylesheet" href="./css/navbar.css" />
+  <link rel="stylesheet" href="./css/form.css" />
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131031230-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-131031230-1');
+  </script>
+
+  <style>
+  body {
+    margin: 0px;
+    font-size: 1vw;
+    font-family: 'Work Sans', sans-serif;
+  }
+
+  h1 {
+    font-size: 4em;
+    font-weight: 800;
+    line-height: 1.2em;
+    margin: 0px;
+  }
+
+  h2 {
+    font-size: 2.2em;
+    font-weight: 200;
+    margin: 0px;
+    margin-bottom: 4vh;
+  }
+
+  h3 {
+    font-size: 4em;
+    margin:0;
+  }
+
+  h4 {
+    font-size: 2em;
+    font-weight: 200;
+    margin: 0;
+  }
+
+  p {
+    font-size: 1.4em;
+    font-weight: 400;
+    margin: 0px;
+    margin-bottom: 2vh;
+    letter-spacing: 1px;
+  }
+
+  em {
+    font-style: normal;
+    font-weight: 800;
+    border-bottom: 1px solid currentColor;
+    font-size: 1.2em;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+    color: rgba(255, 0, 0, 0.5);
+  }
+
+  .site-logo {
+    text-decoration: none;
+    font-size: 1.5em;
+    text-transform: uppercase;
+  }
+  .site-logo:hover{
+    text-decoration: none !important;
+  }
+  
+  .navbar-left {
+    visibility: visible;
+  }
+  
+  #menu-icon-black {
+    display: inline;
+  }
+  
+  .header {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    padding-top: 18vh;
+  }
+  
+  .header-description {
+    margin-left: 6vw;
+    margin-top: 6vh;
+    margin-right: 2vw;
+  }
+  
+  .header-description em{
+    color: rgba(255, 0, 0, 0.5);
+    font-weight: 200;
+    font-size: 1.2em;
+    border: none;
+  }
+  
+  .header-description a{
+    font-weight: 200;
+    border-bottom: solid 1px rgba(255, 0, 0, 0.5);
+  }
+  
+  .header-description a:hover{
+    font-weight: 200;
+    border-bottom: solid 2px rgba(255, 0, 0, 0.5);
+  }
+  
+  .image-container {
+    text-align: center;
+  }
+  
+  .icon-scroll {
+    width: 20px;
+    margin-top: 4vh;
+  }
+  
+  .content {
+    margin-top: 20vh;
+    margin-bottom: 20vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .content-description {
+    justify-self: center;
+  }
+  
+  .content-description h2{
+    margin-bottom: 0;
+  }
+  
+  footer {
+    height: 400px;
+    background-color: rgba(255, 0, 0, 0.5);
+    z-index: 100;
+  }
+  
+  </style>
+  </head>
+  
+  <body>
+  
+  <nav>
+    <div class="navbar">
+      <div class="navbar-left">
+        <a class="site-logo" href="./">㊍Libe <br><em>Photographe</em></a>
+      </div>
+      <div class="navbar-right">
+        <a id='menu-icon-black' href="#dropdown-menu" rel="menu:open"><img class="menu-icon" alt="" src="data:image/svg+xml;base64,
+  PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNTAgNTAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUwIDUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGNsYXNzPSIiPjxnPjxnPgoJPHJlY3QgeT0iMyIgd2lkdGg9IjUwIiBoZWlnaHQ9IjIiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgc3R5bGU9ImZpbGw6IzAwMDAwMCIgZGF0YS1vbGRfY29sb3I9
+  IiNGRkZGRkYiPjwvcmVjdD4KCTxyZWN0IHk9IjE3IiB3aWR0aD0iNTAiIGhlaWdodD0iMiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9ImFjdGl2ZS1wYXRoIiBzdHlsZT0iZmlsbDojMDAwMDAwIiBkYXRhLW9sZF9jb2xvcj0iI0ZGRkZGRiI+PC9yZWN0PgoJPHJlY3QgeT0iMzEiIHdpZHRoPSI1MCIgaGVpZ2h0PSIyIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iYWN0aXZlLXBhdGgiIHN0eWxlPSJmaWxsOiMwMDAwMDAiIGRhdGEtb2xkX2NvbG9yPSIjRkZGRkZGIj48L3JlY3Q+Cgk8cmVjdCB5PSI0NSIgd2lkdGg9IjUwIiBoZWlnaHQ9IjIiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgc3R5bGU9ImZpbGw6IzAwMDAwMCIgZGF0YS1vbGRfY29sb3I9IiNGRkZGRkYiPjwvcmVjdD4KPC9nPjwvZz4gPC9zdmc+" /></a>
+      </div>
+    </div>
+    <div id='dropdown-menu'>
+      <div id='dropdown-menu-content'>
+      <div id="menu-close"><a href='#'>close <em>X</em></a></div>
+      <ul>
+      <li class="site-logo"><a href="./">㊍Libe <br><em>Photographe</em></a></li>
+      <li><a href='./'>Acceuil</a></li>
+      <li><a href='./gallerie-photos.html'>Gallerie Photos</a></li>
+      <li><a href='./blog.html'>Blog</a></li>
+      <li><a href=''>Mon portrait</a></li>
+      <li><a href="#contact-form" rel="modal:open">Contact</a></li>  
+    </ul>  
+  </div>
+    </div>
+  </nav>
+    
+    <div>
+      <div class="header">
+        <div class="header-image">
+          <img src="./img/photo-portrait-libe-photographe.jpg" alt="Photo de portrait d'Elody Libe"></img>
+        </div>
+        <div class="header-description">
+          <h1>Elody Libe</h1>
+          <h2>Portrait d'une Photographe</h2>
+          <p><em>Passionnée</em> par la photographie depuis plusieurs années, je suis photographe professionnelle diplômée des <a href="">Beaux-Arts d’Aix-en-Provence</a>. Dans mon travail, j’entretiens un lien permanent avec la photographie d’art.</p>
+          <p>Ainsi, ce sont des moments <em>uniques et authentiques</em> que je cherche à photographier pendant mes reportages, pour vos demandes: Mariages, couples, familles, baptêmes, bébés, portraits ... Je réalise de nouvelles séries dans divers domaines.</p>
+          <p>Ma formation et mes emplois dans le monde de la <em>communication visuelle</em> et de la <em>publicité</em> avant mon entrée aux Beaux-Arts me permettent aussi de pouvoir créer des images publicitaires dont j’étudie la mise en forme, de l’idée jusqu’au lieu, afin de proposer un oeil neuf et créatif pour la réalisation de votre projet.</p>
+          <div class="image-container">
+            <img class='icon-scroll' alt="" src="data:image/svg+xml;base64,
+    PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMjkgMTI5IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxMjkgMTI5IiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+PGc+PGc+CiAgICA8cGF0aCBkPSJtMTIxLjMsMzQuNmMtMS42LTEuNi00LjItMS42LTUuOCwwbC01MSw1MS4xLTUxLjEtNTEuMWMtMS42LTEuNi00LjItMS42LTUuOCwwLTEuNiwxLjYtMS42LDQuMiAwLDUuOGw1My45LDUzLjljMC44LDAuOCAxLjgsMS4yIDIuOSwxLjIgMSwwIDIuMS0wLjQgMi45LTEuMmw1My45LTUzLjljMS43LTEuNiAxLjctNC4yIDAuMS01Ljh6IiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iYWN0aXZlLXBhdGgiIHN0eWxlPSJmaWxsOiMwMDAwMDAiPjwvcGF0aD4KICA8L2c+PC9nPiA8L3N2Zz4=" />
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="content-description">
+          <h2> Mon Appareil Photo:</h2>
+          <h3>Le Pentax K-1</h3>
+          <p></p>
+        </div>
+        <div>
+          <img src="img/appareil-photo-pentax-k1.jpg" alt="Appareil photo: Pentax K-1"></img>
+        </div>
+      </div>
+    </div>
+    
+    <div id="contact-form" class="modal">
+      <form action="https://formspree.io/photographe@visual.eslibe.com" method="POST">
+        <div id="contact-title">
+          <h4>Me contacter</h4>
+        </div>
+        <div class='contact-info'>
+          <a class="site-logo" href="">㊍Libe <br><em>Photographe</em></a>
+        </div>
+        <div class='contact-info'>
+          <p>13100 Aix-en-Provence<br>
+              France</p>
+              <ul><li><a href = "mailto: photographe@visual.eslibe.com">photographe@visual.eslibe.com</a></li>
+              <li><a href="tel:+33695858454">06 95 85 84 54</a></li></ul>
+        </div>
+        <input type="text" id='name' name='Name' placeholder="Nom" required></input>
+        <input type="email" id='email' name='_replyto' placeholder="Email" required></input>
+        <input type="tel" id='phone' name='Phone' placeholder="Téléphone (Optionel)"></input>
+        <input type="text" id='subject' name='_subject' placeholder="Sujet" required></input>
+        <textarea id='description' name='Description' placeholder="Description..." required></textarea>    
+        <input type="submit" id='submit'></input>
+      </form>
+    </div>
+    
+    <footer>
+      
+    </footer>
+    
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/jquery.modal.min.js"></script>
+  </body>
+  
+  <script type="text/javascript">
+  $(window).click(function(e){
+    var target = $(e.target), article;
+    if(target.is('#dropdown-menu')){
+    }else{
+     $("#dropdown-menu").hide(); 
+    }    
+  });
+  
+  $("#menu-close").click(function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    $("#dropdown-menu").hide();
+  });
+  
+  $("#menu-icon-black").click(function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    $("#dropdown-menu").show();
+  });
+  </script>
+</html>

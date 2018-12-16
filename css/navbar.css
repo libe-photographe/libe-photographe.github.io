@@ -12,6 +12,10 @@ ul {
   padding-top: 20px;
 }
 
+.navbar .site-logo{
+  color: black;
+}
+
 .navbar-left {
   margin-left: 4vw;
   visibility: hidden;
@@ -45,7 +49,7 @@ ul {
   width: 30vw;
   height: 100vh;
   display: none;
-  background-color: rgb(255, 175, 175);
+  background-color: rgb(255, 132, 137);
   padding-left: 4vw;
   padding-top: 2vh;
 }
@@ -60,10 +64,19 @@ ul {
 }
 
 #dropdown-menu a{
-  font-size: 1.4em;
+  font-size: 1.2em;
   text-transform: uppercase;
   color: white;
   font-weight: 400;
+  text-decoration: none;
+}
+
+#dropdown-menu .site-logo{
+  font-size: 1.6em;
+  margin-bottom: 2.8em;
+}
+
+#dropdown-menu .site-logo a:hover{
   text-decoration: none;
 }
 

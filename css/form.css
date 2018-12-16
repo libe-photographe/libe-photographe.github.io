@@ -22,6 +22,32 @@ textarea{
   padding-top: 30px; 
 }
 
+#contact-form h4{
+  font-size: 2.6em;
+  font-weight: 200;
+  text-transform: capitalize;
+  color: rgba(255, 0, 0, 0.5);
+  margin: 0px;
+}
+
+#contact-form .site-logo{
+  font-size: 2em;
+}
+
+#contact-form ul{
+  margin: 0px;
+  margin-bottom: 1vw;
+}
+
+#contact-form a{
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+#contact-form li{
+  margin-bottom: 0.5vw; 
+}
+
 #contact-form form{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -35,8 +61,7 @@ textarea{
 
 #name {
   grid-row-start: 2;
-  margin-top: auto;
-  margin-bottom: auto;
+  align-self: end;
 }
 
 #subject{
@@ -62,6 +87,7 @@ textarea{
 
 #contact-title {
   margin:0;
+  align-self: end;
 }
 
 .contact-info h3{
