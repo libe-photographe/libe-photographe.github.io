@@ -38,6 +38,14 @@ ul {
   width: 3vw;
 }
 
+.icon {
+  color: black !important;
+}
+
+.libe-artist-icon {
+  background-color: black;
+}
+
 #menu-icon-black{
   display: none;
 }
@@ -49,7 +57,7 @@ ul {
   width: 30vw;
   height: 100vh;
   display: none;
-  background-color: rgb(255, 132, 137);
+  background-color: white;
   padding-left: 4vw;
   padding-top: 2vh;
 }
